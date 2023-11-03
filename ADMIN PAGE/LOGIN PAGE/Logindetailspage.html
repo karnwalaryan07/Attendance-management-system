@@ -1,4 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <style>
+        body {
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="login-form">
+            <h2>Admin Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <br>
+            <button onclick="login()">Login</button>
+        </div>
 
+        <div id="options" style="display: none;">
+            <h2>Welcome, Admin!</h2>
+            <p>Please choose an option:</p>
+            <button onclick="displayDetails('Teacher')"><a href="3.html">Teacher</a></button>
+            <button onclick="displayDetails('Student')"><a href="4.html">Student</a></button>
+        </div>
+
+        <div id="details" style="display: none;">
+            <h2>Details</h2>
+            <p id="detail-text"></p>
+        </div>
+    </div>
+
+    <script>
+        const userData = {
+            Teacher: "Teacher details go here.",
+            Student: "Student details go here."
+        };
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // You can add your authentication logic here.
+            // For a basic example, we'll assume a hardcoded username and password.
+            if (username === 'abc' && password === '12341234') {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('options').style.display = 'block';
+            } else {
+                alert('Invalid login credentials. Please try again.');
+            }
+        }
+
+        function displayDetails(option) {
+            if (userData[option]) {
+                document.getElementById('options').style.display = 'none';
+                document.getElementById('details').style.display = 'block';
+                document.getElementById('detail-text').textContent = userData[option];
+            } else {
+                alert('Option not found.');
+            }
+        }
+    </script>
+</body>
+</html>
 
 
 
