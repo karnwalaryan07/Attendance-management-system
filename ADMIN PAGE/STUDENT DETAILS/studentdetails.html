@@ -100,6 +100,25 @@
             const enrollmentno = document.getElementById("enrollmentno").value;
             const mobile = document.getElementById("mobile").value;
 
+         function displayContacts() {
+            const contactRows = document.getElementById("contact-rows");
+            contactRows.innerHTML = "";
+
+            for (const contact of contacts) {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${contact.name}</td>
+                    <td>${contact.sapid}</td>
+                    <td>${contact.enrollmentno}</td>
+                    <td>${contact.mobile}</td>
+                `;
+                contactRows.appendChild(row);
+            }
+        }
+        displayContacts();
+    </script>
+</body>
+</html>
 
 
 
