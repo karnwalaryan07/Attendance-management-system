@@ -96,6 +96,107 @@
     <script>
         let contacts = [];
 
+        function addRecord() {
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const mobile = document.getElementById("mobile").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+
+            if (!firstname || !lastname || !mobile || !email || !address) {
+                alert("Please enter all details.");
+                return;
+            }
+
+            if (contacts.find(contact => contact.mobile === mobile)) {
+                alert("Duplicates not allowed.");
+                return;
+            }
+
+            const newContact = {
+                firstname,
+                lastname,
+                mobile,
+                email,
+                address
+            };
+
+            contacts.push(newContact);
+            displayContacts();
+            resetFields();
+        }
+
+        function updateRecord() {
+            const mobile = document.getElementById("mobile").value;
+
+            if (!mobile) {
+                alert("Select a record to update.");
+                return;
+            }
+
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+
+            const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts[index].firstname = firstname;
+                contacts[index].lastname = lastname;
+                contacts[index].email = email;
+                contacts[index].address = address;
+                displayContacts();
+                resetFields();
+            }
+        }
+
+        function deleteRecord() {
+            const mobile = document.getElementById("mobile").value;
+
+            if (!mobile) {
+                alert("Enter contact ID to delete the record.");
+                return;
+            }
+
+            const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts.splice(index, 1);
+                displayContacts();
+                resetFields();
+            }
+        }
+
+        function resetFields() {
+            document.getElementById("firstname").value = "";
+            document.getElementById("lastname").value = "";
+            document.getElementById("mobile").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("address").value = "";
+        }
+
+        function displayContacts() {
+            const contactRows = document.getElementById("contact-rows");
+            contactRows.innerHTML = "";
+
+            for (const contact of contacts) {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${contact.firstname}</td>
+                    <td>${contact.lastname}</td>
+                    <td>${contact.mobile}</td>
+                    <td>${contact.email}</td>
+                    <td>${contact.address}</td>
+                `;
+                contactRows.appendChild(row);
+            }
+        }
+
+        displayContacts();
+    </script>
+</body>
+</html>
 
 
 
