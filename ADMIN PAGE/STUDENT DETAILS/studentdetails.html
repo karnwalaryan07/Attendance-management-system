@@ -92,6 +92,41 @@
         </tbody>
     </table>
     <script>
+
+        const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts[index].name = name;
+                contacts[index].sapid = sapid;
+                contacts[index].enrollmentno = enrollmentno;
+                displayContacts();
+                resetFields();
+            }
+        }
+
+        function deleteRecord() {
+            const mobile = document.getElementById("mobile").value;
+
+            if (!mobile) {
+                alert("Enter mobile number to delete the record.");
+                return;
+            }
+
+            const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts.splice(index, 1);
+                displayContacts();
+                resetFields();
+            }
+        }
+
+        function resetFields() {
+            document.getElementById("name").value = "";
+            document.getElementById("sapid").value = "";
+            document.getElementById("enrollmentno").value = "";
+            document.getElementById("mobile").value = "";
+        }
         let contacts = [];
 
         function addRecord() {
