@@ -216,10 +216,10 @@
                     <td>${contact.address}</td>
                     <td>
                         <select id="attendance-${contact.mobile}">
-                            <option value="Present" ${
+                            <option value="Present" style="color: green;" ${
                                 contact.attendance === "Present" ? "selected" : ""
                             }>Present</option>
-                            <option value="Absent" ${
+                            <option value="Absent" style="color: red;" ${
                                 contact.attendance === "Absent" ? "selected" : ""
                             }>Absent</option>
                         </select>
