@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Selection</title>
+    <style>
+        body {
+            background-color: rgb(163, 162, 166);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 100px auto;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin: 0;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 13px;
+            background-color: rgb(25, 88, 65);
+            color: #ffffff;
+            border: 1px solid black;
+            cursor: pointer;
+            border-radius: 5%;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Subject Selection</h2>
+        <form id="subjectForm">
+            <select id="subject" required>
+                <option value="" disabled selected>Select Subject</option>
+                <option value="Devops">Devops</option>
+                <!-- Add more subjects as needed -->
+            </select>
+            <button id="selectButton" type="button">Select Subject</button>
+        </form>
+        <p id="selectedSubject"></p>
+    </div>
+
+    <script>
+        document.getElementById("selectButton").addEventListener("click", function() {
+            const selectedSubject = document.getElementById("subject").value;
+
+            if (selectedSubject) {
+                document.getElementById("selectedSubject").innerHTML = "Selected Subject: " + selectedSubject;
+                
+                // Redirect to the attendance.html page
+                window.location.href = 'ten.html';
+            } else {
+                alert("Please select a subject.");
+            }
+        });
+    </script>
+</body>
+</html>
