@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            background-color: green;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px;
+        }
+
+        .contact-form {
+            background-color: yellow;
+            border: 1px solid #ccc;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .contact-form input {
+            display: block;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            background-color: red;
+            color: blue;
+            font-size: 12px;
+            padding: 5px 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        select {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">STUDENTS DETAILS</div>
+    <!-- <div class="contact-form">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="sapid" placeholder="SAP_ID">
+        <input type="text" id="mobile" placeholder="Mobile No.">
+        <input type="text" id="email" placeholder="Email">
+        <input type="text" id="address" placeholder="Address">
+        <div class="buttons">
+            <button onclick="addRecord()">Add record</button>
+            <button onclick="updateRecord()">Update</button>
+            <button onclick="deleteRecord()">Delete</button>
+            <button onclick="resetFields()">Reset</button>
+        </div>
+    </div> -->
+    <table id="contact-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SAP_ID</th>
+                <th>Mobile No.</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody id="contact-rows">
+        </tbody>
+    </table>
+    <script>
+      let contacts = [];
+
+      function displayContacts(username) {
+          const contactRows = document.getElementById("contact-rows");
+          contactRows.innerHTML = "";
+
+          // Filter contacts based on the provided username
+          const filteredContacts = contacts.filter(contact => contact.sapid === username);
+         console.log(contacts)
+          for (const contact of filteredContacts) {
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                  <td>${contact.name}</td>
+                  <td>${contact.sapid}</td>
+                  <td>${contact.mobile}</td>
+                  <td>${contact.email}</td>
+                  <td>${contact.address}</td>
+                  <td>
+                      ${contact.attendance}
+                  </td>
+                 
+              `;
+              contactRows.appendChild(row);
+          }
+      }
+
+      function loadContacts() {
+          const urlParams = new URLSearchParams(window.location.search);
+          const username = urlParams.get('username');
+
+          const storedContacts = localStorage.getItem("StudentContacts");
+          if (storedContacts) {
+              contacts = JSON.parse(storedContacts);
+              displayContacts(username);
+          }
+      }
+
+      loadContacts();
+  </script>
+</body>
+
+</html>
