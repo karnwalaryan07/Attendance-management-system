@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            background-color: green;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px;
+        }
+
+        .contact-form {
+            background-color: yellow;
+            border: 1px solid #ccc;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .contact-form input {
+            display: block;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        button {
+            background-color: red;
+            color: blue;
+            font-size: 12px;
+            padding: 5px 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        select {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">TEACHERS DETAILS</div>
+    <div class="contact-form">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="sapid" placeholder="SAP_ID">
+        <input type="text" id="mobile" placeholder="Mobile No.">
+        <input type="text" id="email" placeholder="Email">
+        <input type="text" id="address" placeholder="Address">
+        <div class="buttons">
+            <button onclick="addRecord()">Add record</button>
+            <button onclick="updateRecord()">Update</button>
+            <button onclick="deleteRecord()">Delete</button>
+            <button onclick="resetFields()">Reset</button>
+        </div>
+    </div>
+    <table id="contact-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SAP_ID</th>
+                <th>Mobile No.</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody id="contact-rows">
+        </tbody>
+    </table>
+    <script>
+        let contacts = [];
+
+        function addRecord() {
+            const name = document.getElementById("name").value;
+            const sapid = document.getElementById("sapid").value;
+            const mobile = document.getElementById("mobile").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+            const attendance = "Present"; // Default attendance status
+
+            if (!name || !sapid || !mobile || !email || !address) {
+                alert("Please enter all details.");
+                return;
+            }
+
+            if (contacts.find(contact => contact.mobile === mobile)) {
+                alert("Duplicates not allowed.");
+                return;
+            }
+
+            const newContact = {
+                name,
+                sapid,
+                mobile,
+                email,
+                address,
+                attendance
+            };
+
+            contacts.push(newContact);
+            saveToLocalStorage()
+            displayContacts();
+            saveToLocalStorage()
+            resetFields();
+        }
+
+        function updateRecord() {
+            const mobile = document.getElementById("mobile").value;
+
+            if (!mobile) {
+                alert("Select a record to update.");
+                return;
+            }
+
+            const name = document.getElementById("name").value;
+            const sapid = document.getElementById("sapid").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
+
+            const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts[index].name = name;
+                contacts[index].sapid = sapid;
+                contacts[index].email = email;
+                contacts[index].address = address;
+                saveToLocalStorage()
+                displayContacts();
+                saveToLocalStorage()
+                resetFields();
+            }
+           
+        }
+
+        function deleteRecord() {
+            const mobile = document.getElementById("mobile").value;
+
+            if (!mobile) {
+                alert("Enter mobile number to delete the record.");
+                return;
+            }
+
+            const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts.splice(index, 1);
+                displayContacts();
+                saveToLocalStorage()
+                resetFields();
+            }
+         
+        }
+
+        function resetFields() {
+            document.getElementById("name").value = "";
+            document.getElementById("sapid").value = "";
+            document.getElementById("mobile").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("address").value = "";
+        }
+
+        function displayContacts() {
+            const contactRows = document.getElementById("contact-rows");
+            contactRows.innerHTML = "";
+
+            for (const contact of contacts) {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${contact.name}</td>
+                    <td>${contact.sapid}</td>
+                    <td>${contact.mobile}</td>
+                    <td>${contact.email}</td>
+                    <td>${contact.address}</td>
+                    <td>
+                        <select id="attendance-${contact.mobile}">
+                            <option value="Present" ${
+                                contact.attendance === "Present" ? "selected" : ""
+                            }>Present</option>
+                            <option value="Absent" ${
+                                contact.attendance === "Absent" ? "selected" : ""
+                            }>Absent</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button onclick="markAttendance('${contact.mobile}')">Mark Attendance</button>
+                    </td>
+                `;
+                contactRows.appendChild(row);
+            }
+        }
+
+        function markAttendance(mobile) {
+            const attendanceSelect = document.getElementById(attendance-${mobile});
+            const attendance = attendanceSelect.value;
+
+            const index = contacts.findIndex(contact => contact.mobile === mobile);
+
+            if (index !== -1) {
+                contacts[index].attendance = attendance;
+                loadContacts();
+            }
+            saveToLocalStorage()
+        }
+
+        function saveToLocalStorage() {
+            // Save the contacts array to localStorage as JSON
+            localStorage.setItem("TeacherContacts", JSON.stringify(contacts));
+        }
+    
+        function loadContacts() {
+            // Load contacts from localStorage and parse the JSON
+            const storedContacts = localStorage.getItem("TeacherContacts");
+            if (storedContacts) {
+                contacts = JSON.parse(storedContacts);
+                displayContacts();
+            }
+        }
+    
+        // Load contacts when the page loads
+        loadContacts();
+    </script>
+</body>
+
+</html>
