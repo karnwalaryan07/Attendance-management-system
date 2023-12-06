@@ -6,34 +6,65 @@
     <title>Teacher</title>
     <style>
         body {
+            background-image: url('pic.jpg');
+            height: 85vh;
+            background-size:cover;
+            background-position: top left;
             background-color: rgb(163, 162, 166);
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Segoe Fluent Icons',' Times New Roman';
+            text-align:center;
+            font-size: 50px;
+           /* padding: 50px;*/
+            font-weight: bold;
+            word-spacing: 15px;
         }
+       
         .container {
-            margin: 100px auto;
-            max-width: 400px;
+            margin: 120px auto;
+            max-width: 350px;
+            margin-left: 55%;
         }
+        
         h2 {
-            margin: 0;
+            color: #ffffff;
+            margin: 15px;
+            font-size: 45px;
+            display: inline-block;
         }
+        
         input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            width: 120%;
+            padding: 35px;
+            margin: 20px ;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        #username,
+        #password {
+            width: 150%;
+            padding: 23px;
+            margin: 20px;
+            font-size: 22px;
+            border: 
+            1px solid #ccc;
+            border-radius: 4px;
+        }
+
         button {
             display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 13px;
-            background-color: rgb(25, 88, 65);
+            width: 160%;
+            padding: 20px;
+            margin: 20px;
+            font-size: 28px;
+            background-color: rgb(22, 11, 143);
             color: #ffffff;
             border: 1px solid black; /* Specify border properly */
             cursor: pointer;
-            border-radius: 5%;
+            border-radius: 3%;
+            font-size: 30px;
+           /* padding: 50px;*/
+            font-weight: bold;
+            word-spacing: 20px;
         }
         button:hover {
             background-color: #2980b9;
