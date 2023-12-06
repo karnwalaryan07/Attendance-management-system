@@ -6,31 +6,41 @@
     <title>LOGIN</title>
     <style>
         body {
-            background-color: rgb(163, 162, 166);
-            font-family: Arial, sans-serif;
+            background-image: url('pic6.png');
+            height: 100vh;
+            background-size: contain;
+            background-position: center;
+            background-color: rgb(242, 241, 246);
             text-align: center;
         }
         .container {
-            margin: 100px auto;
+            margin: 80px auto;
             max-width: 400px;
+            
         }
-        h2 {
-            margin: 0;
+        h1 {
+            color: #f6f2f2;
+    margin: 50;
+    font-size: 3em;
+    text-align: center; 
         }
         button {
             display: block;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: rgb(25, 88, 65);
+            padding: 30px;
+            margin: 35px 0;
+            background-color: rgb(22, 11, 143);
             color: #ffffff;
-            border:black;
+            border:rgb(12, 12, 12);
             border-style: solid;
             cursor: pointer;
             border-radius: 5%;
+            font-family: 'Cambria';
+            font-size: 2em;
+            font-weight: bolder;
         }
         button:hover {
-            background-color: rgb(61, 135, 13);
+            background-color: rgb(46, 3, 109);
         }
     </style>
 </head>
