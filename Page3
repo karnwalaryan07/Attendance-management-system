@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher and Student Buttons</title>
+    <style>
+        body {
+            background-color: rgb(163, 162, 166);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #button-container {
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            width: 200px; /* Set the desired width for the buttons */
+            height: 60px; /* Set the desired height for the buttons */
+            padding: 10px;
+            margin: 10px;
+            background-color: rgb(25, 88, 65);
+            color: #ffffff;
+            border:black;
+            border-style: solid;
+            cursor: pointer;
+            border-radius: 5%;  
+        }
+    </style>
+</head>
+<body>
+    <div id="button-container">
+        <button onclick="window.location.href = 'four.html';">Teacher</button>
+        <button onclick="window.location.href = 'five.html';">Student</button>
+    </div>
+</body>
+</html>
