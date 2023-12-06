@@ -6,44 +6,58 @@
     <title>Subject Selection</title>
     <style>
         body {
-            background-color: rgb(163, 162, 166);
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            margin: 100px auto;
-            max-width: 400px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            margin: 0;
-        }
-        select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 13px;
-            background-color: rgb(25, 88, 65);
-            color: #ffffff;
-            border: 1px solid black;
-            cursor: pointer;
-            border-radius: 5%;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
+/*background-color: rgb(54, 15, 172);*/
+    background-image: url('pic2.jpg');
+    height: 55vh;
+    background-size: cover;
+    background-position: top left;
+    font-family: 'Segoe Fluent Icons', 'Times New Roman';
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 200px auto;
+    max-width: 500px;
+    /*background-color: #3c99d700;*/
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 254, 254, 0.1);
+    margin-right: 45px; /* Adjust the margin from the right side */
+}
+
+h2 {
+    margin: 0;
+    font-size: 45px;
+}
+
+select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 13px;
+    background-color: rgb(16, 7, 88);
+    color: #ffffff;
+    border: 1px solid rgb(8, 3, 3);
+    cursor: pointer;
+    border-radius: 4%;
+    font-size: 22px; /* Set the desired font size */
+}
+
+button:hover {
+    background-color: #197fb2;
+}
+
     </style>
 </head>
 <body>
