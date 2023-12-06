@@ -7,7 +7,7 @@
     <title>Attendance Management System</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe Fluent Icons', Times, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif;
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
@@ -21,7 +21,7 @@
             padding: 10px;
         }
 
-        .contact-form {
+         .contact-form {
             background-color: yellow;
             border: 1px solid #ccc;
             margin: 20px;
