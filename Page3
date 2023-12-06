@@ -4,6 +4,10 @@
     <title>Teacher and Student Buttons</title>
     <style>
         body {
+            background-image: url('pic5.jpg');
+            height: 85vh;
+            background-size:138%;
+            background-position:top left;
             background-color: rgb(163, 162, 166);
             display: flex;
             justify-content: center;
@@ -18,16 +22,20 @@
 
         button {
             display: block;
-            width: 200px; /* Set the desired width for the buttons */
-            height: 60px; /* Set the desired height for the buttons */
-            padding: 10px;
-            margin: 10px;
-            background-color: rgb(25, 88, 65);
+            width: 160%;
+            padding: 40px;
+            margin: 25px;
+            font-size: 28px;
+            background-color: rgb(22, 11, 143);
             color: #ffffff;
-            border:black;
-            border-style: solid;
+            border: 1px solid black; /* Specify border properly */
+            margin-left: 200%;
             cursor: pointer;
-            border-radius: 5%;  
+            border-radius: 3%;
+            font-size: 30px;
+           /* padding: 50px;*/
+            font-weight: bold;
+            word-spacing: 20px;
         }
     </style>
 </head>
