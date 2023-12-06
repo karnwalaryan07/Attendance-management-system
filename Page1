@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        body {
+            background-color: rgb(163, 162, 166);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin: 100px auto;
+            max-width: 400px;
+        }
+        h2 {
+            margin: 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: rgb(25, 88, 65);
+            color: #ffffff;
+            border:black;
+            border-style: solid;
+            cursor: pointer;
+            border-radius: 5%;
+        }
+        button:hover {
+            background-color: rgb(61, 135, 13);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LOGIN</h1>
+        <button onclick="window.location.href = 'two.html';">Admin</button>
+        <button onclick="window.location.href = 'six.html';">Teacher</button>
+        <button onclick="window.location.href = 'eight.html';">Student</button>    
+    </div>
+</body>
+</html>
